@@ -857,20 +857,8 @@
           "description": "List of rules within the rule group",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ManagedRuleSetRule"
+            "type": "string"
           }
-        }
-      }
-    },
-    "ManagedRuleSetRule": {
-      "description": "Defines a managed rule set rule group rule",
-      "required": [
-        "ruleId"
-      ],
-      "properties": {
-        "ruleId": {
-          "description": "Identifier for the rule.",
-          "type": "string"
         }
       }
     },
