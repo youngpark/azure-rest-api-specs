@@ -1,4 +1,4 @@
-// npx ts-node specification/resources/resource-manager/Microsoft.Resources/convert.ts
+// npm --prefix dev/deployments/convert start
 
 import { dirname, resolve } from 'path';
 import { readFileSync, readdirSync, writeFile, writeFileSync } from 'fs';
@@ -107,9 +107,6 @@ async function split(resourcesPath: string) {
       deleteRef(newDeployments, ref);
     }
   }
-
-  newDeployments['info']['title'] = 'DeploymentsClient';
-  newDeployments['info']['description'] = 'Provides operations for working with deployments.';
 
   writeFileSync(resolve(basePath, 'deployments.json'), JSON.stringify(newDeployments, null, 2));
   writeFileSync(resolve(basePath, 'resources.json'), JSON.stringify(newResources, null, 2));  
