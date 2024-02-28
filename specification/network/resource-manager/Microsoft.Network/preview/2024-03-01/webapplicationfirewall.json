@@ -786,7 +786,7 @@
         },
         "computedDisabledRuleGroups": {
           "readOnly": true,
-          "description": "Stores the computed list of disabled rule groups after consuming manifest",
+          "description": "Stores the final list of disabled rule groups",
           "type": "array",
           "items": {
             "$ref": "#/definitions/ManagedRuleSetRuleGroup"
