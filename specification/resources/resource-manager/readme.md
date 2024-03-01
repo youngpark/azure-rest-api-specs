@@ -1258,10 +1258,6 @@ directive:
     where: $.paths
     from: resources.json
     reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
-  - suppress: XMS_EXAMPLE_NOTFOUND_ERROR
-    where: $.paths
-    from: deployments.json
-    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
   - suppress: LRO_RESPONSE_HEADER
     reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
   - suppress: OperationsApiResponseSchema
@@ -1356,6 +1352,105 @@ directive:
     reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
   - suppress: XmsParameterLocation
     from: resources.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: XMS_EXAMPLE_NOTFOUND_ERROR
+    where: $.paths
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: LRO_RESPONSE_HEADER
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: OperationsApiResponseSchema
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: OperationsApiSchemaUsesCommonTypes
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: NoDuplicatePathsForScopeParameter
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: LroLocationHeader
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: LroErrorContent
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: NoErrorCodeResponses
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: PutRequestResponseSchemeArm
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: PutResponseSchemaDescription
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: PostOperationAsyncResponseValidation
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: MissingXmsErrorResponse
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: PathForPutOperation
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: PathResourceProviderMatchNamespace
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: ParametersOrder
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: SyncPostReturn
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: PathContainsResourceType
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: OperationIdNounVerb
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: PathForResourceAction
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: UnSupportedPatchProperties
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: LroPostReturn
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: ProvisioningStateSpecifiedForLROPut
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: ProvisioningStateSpecifiedForLROPatch
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: SubscriptionsAndResourceGroupCasing
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: ResourceNameRestriction
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: ConsistentPatchProperties
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: GetCollectionOnlyHasValueAndNextLink
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: MissingTypeObject
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: TrackedResourcePatchOperation
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: IntegerTypeMustHaveFormat
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: BodyTopLevelProperties
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: TopLevelResourcesListBySubscription
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: XmsParameterLocation
+    from: deployments.json
     reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
 ```
 
