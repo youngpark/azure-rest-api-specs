@@ -1258,6 +1258,10 @@ directive:
     where: $.paths
     from: resources.json
     reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
+  - suppress: XMS_EXAMPLE_NOTFOUND_ERROR
+    where: $.paths
+    from: deployments.json
+    reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
   - suppress: LRO_RESPONSE_HEADER
     reason: Pre-existing lint error. Not related to this version release. Will fix in the future.
   - suppress: OperationsApiResponseSchema

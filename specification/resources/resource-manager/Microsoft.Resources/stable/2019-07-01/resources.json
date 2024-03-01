@@ -619,6 +619,64 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/exportTemplate": {
+      "post": {
+        "tags": [
+          "ResourceGroups"
+        ],
+        "operationId": "ResourceGroups_ExportTemplate",
+        "description": "Captures the specified resource group as a template.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group to export as a template.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "minLength": 1,
+            "maxLength": 90
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExportTemplateRequest"
+            },
+            "description": "Parameters for exporting the template."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "x-ms-examples": {
+          "Export a resource group": {
+            "$ref": "./examples/ExportResourceGroup.json"
+          },
+          "Export a resource group with filtering": {
+            "$ref": "./examples/ExportResourceGroupWithFiltering.json"
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK - Returns the result of the export.",
+            "schema": {
+              "$ref": "#/definitions/ResourceGroupExportResult"
+            }
+          },
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourcegroups": {
       "get": {
         "tags": [
@@ -2145,6 +2203,22 @@
       },
       "description": "Parameters of move resources."
     },
+    "ExportTemplateRequest": {
+      "properties": {
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The IDs of the resources to filter the export by. To export all resources, supply an array with single entry '*'."
+        },
+        "options": {
+          "type": "string",
+          "description": "The export template options. A CSV-formatted list containing zero or more of the following: 'IncludeParameterDefaultValue', 'IncludeComments', 'SkipResourceNameParameterization', 'SkipAllParameterization'"
+        }
+      },
+      "description": "Export resource group template request parameters."
+    },
     "TagCount": {
       "properties": {
         "type": {
@@ -2285,6 +2359,19 @@
       },
       "x-ms-azure-resource": true,
       "description": "Sub-resource."
+    },
+    "ResourceGroupExportResult": {
+      "properties": {
+        "template": {
+          "type": "object",
+          "description": "The template content."
+        },
+        "error": {
+          "$ref": "../../../../../common-types/resource-management/v1/types.json#/definitions/ErrorResponse",
+          "description": "The template export error."
+        }
+      },
+      "description": "Resource group export result."
     },
     "Operation": {
       "description": "Microsoft.Resources operation",

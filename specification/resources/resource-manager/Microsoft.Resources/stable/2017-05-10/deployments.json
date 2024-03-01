@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "ResourceManagementClient",
+    "title": "DeploymentsClient",
     "version": "2017-05-10",
-    "description": "Provides operations for working with resources and resource groups."
+    "description": "APIs for managing Azure Deployments"
   },
   "host": "management.azure.com",
   "schemes": [
@@ -427,50 +427,6 @@
           "nextLinkName": "nextLink"
         },
         "x-ms-odata": "#/definitions/DeploymentExtendedFilter"
-      }
-    },
-    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/exportTemplate": {
-      "post": {
-        "tags": [
-          "ResourceGroups"
-        ],
-        "operationId": "ResourceGroups_ExportTemplate",
-        "description": "Captures the specified resource group as a template.",
-        "parameters": [
-          {
-            "name": "resourceGroupName",
-            "in": "path",
-            "required": true,
-            "type": "string",
-            "description": "The name of the resource group to export as a template.",
-            "pattern": "^[-\\w\\._\\(\\)]+$",
-            "minLength": 1,
-            "maxLength": 90
-          },
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ExportTemplateRequest"
-            },
-            "description": "Parameters for exporting the template."
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK - Returns the result of the export.",
-            "schema": {
-              "$ref": "#/definitions/ResourceGroupExportResult"
-            }
-          }
-        }
       }
     },
     "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/deployments/{deploymentName}/operations/{operationId}": {
@@ -1044,22 +1000,6 @@
       },
       "description": "List of deployments."
     },
-    "ExportTemplateRequest": {
-      "properties": {
-        "resources": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "The IDs of the resources to filter the export by. To export all resources, supply an array with single entry '*'."
-        },
-        "options": {
-          "type": "string",
-          "description": "The export template options. A CSV-formatted list containing zero or more of the following: 'IncludeParameterDefaultValue', 'IncludeComments', 'SkipResourceNameParameterization', 'SkipAllParameterization'"
-        }
-      },
-      "description": "Export resource group template request parameters."
-    },
     "TargetResource": {
       "properties": {
         "id": {
@@ -1201,19 +1141,6 @@
       },
       "x-ms-azure-resource": true,
       "description": "Sub-resource."
-    },
-    "ResourceGroupExportResult": {
-      "properties": {
-        "template": {
-          "type": "object",
-          "description": "The template content."
-        },
-        "error": {
-          "$ref": "#/definitions/ResourceManagementErrorWithDetails",
-          "description": "The error."
-        }
-      },
-      "description": "Resource group export result."
     },
     "TemplateHashResult": {
       "description": "Result of the request to calculate template hash. It contains a string of minified template and its hash.",

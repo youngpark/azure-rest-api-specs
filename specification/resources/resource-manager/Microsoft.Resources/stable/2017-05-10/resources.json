@@ -435,6 +435,50 @@
         }
       }
     },
+    "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/exportTemplate": {
+      "post": {
+        "tags": [
+          "ResourceGroups"
+        ],
+        "operationId": "ResourceGroups_ExportTemplate",
+        "description": "Captures the specified resource group as a template.",
+        "parameters": [
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "The name of the resource group to export as a template.",
+            "pattern": "^[-\\w\\._\\(\\)]+$",
+            "minLength": 1,
+            "maxLength": 90
+          },
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExportTemplateRequest"
+            },
+            "description": "Parameters for exporting the template."
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          },
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Returns the result of the export.",
+            "schema": {
+              "$ref": "#/definitions/ResourceGroupExportResult"
+            }
+          }
+        }
+      }
+    },
     "/subscriptions/{subscriptionId}/resourcegroups": {
       "get": {
         "tags": [
@@ -1418,6 +1462,34 @@
       },
       "description": "Resource group filter."
     },
+    "ResourceManagementErrorWithDetails": {
+      "properties": {
+        "code": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The error code returned when exporting the template."
+        },
+        "message": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The error message describing the export error."
+        },
+        "target": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The target of the error."
+        },
+        "details": {
+          "readOnly": true,
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResourceManagementErrorWithDetails"
+          },
+          "description": "Validation error."
+        }
+      },
+      "description": "The detailed error message of resource management."
+    },
     "AliasPathType": {
       "properties": {
         "path": {
@@ -1802,6 +1874,22 @@
       },
       "description": "Parameters of move resources."
     },
+    "ExportTemplateRequest": {
+      "properties": {
+        "resources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The IDs of the resources to filter the export by. To export all resources, supply an array with single entry '*'."
+        },
+        "options": {
+          "type": "string",
+          "description": "The export template options. A CSV-formatted list containing zero or more of the following: 'IncludeParameterDefaultValue', 'IncludeComments', 'SkipResourceNameParameterization', 'SkipAllParameterization'"
+        }
+      },
+      "description": "Export resource group template request parameters."
+    },
     "TagCount": {
       "properties": {
         "type": {
@@ -1942,6 +2030,19 @@
       },
       "x-ms-azure-resource": true,
       "description": "Sub-resource."
+    },
+    "ResourceGroupExportResult": {
+      "properties": {
+        "template": {
+          "type": "object",
+          "description": "The template content."
+        },
+        "error": {
+          "$ref": "#/definitions/ResourceManagementErrorWithDetails",
+          "description": "The error."
+        }
+      },
+      "description": "Resource group export result."
     },
     "ZoneMapping": {
       "properties": {

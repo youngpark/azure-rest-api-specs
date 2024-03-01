@@ -1,8 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "ResourceManagementClient",
-    "version": "2015-11-01"
+    "title": "DeploymentsClient",
+    "version": "2015-11-01",
+    "description": "APIs for managing Azure Deployments"
   },
   "host": "management.azure.com",
   "schemes": [
